@@ -1,12 +1,14 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 class Node {
     private int index;
-    private int distnace;
+    private int distance;
 
-    public Node(int index, int distnace){
+    public Node(int index, int distance){
         this.index = index;
-        this.distnace = distnace;
+        this.distance = distance;
     }
 
     public int getIndex(){
@@ -14,7 +16,7 @@ class Node {
     }
 
     public int getDistance(){
-        return this.distnace;
+        return this.distance;
     }
 }
 
@@ -56,6 +58,57 @@ public class Main{
 
         // 시작 노드를 제외한 전체 n-1개의 노드에 대해 반복
         for (int i = 0; i < n-1; i++){
+            // 현재 최단 거리가 가장 짧은 노드를 꺼내서, 방문처리
+            int now = getSmallestNode();
+            visited[now] = true;
+
+            // 현재 노드와 연결된 다른 노드 확인
+            for (int j = 0; j < graph.get(now).size(); j++){
+                int cost = d[now] + graph.get(now).get(j).getDistance();
+                // 현재 노드를 거쳐서 다른 노드로 이동한 거리가 더 짧은경우 갱신
+                if (cost < d[graph.get(now).get(j).getIndex()]){
+                    d[graph.get(now).get(j).getIndex()] = cost;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        m = sc.nextInt();
+        start = sc.nextInt();
+
+        // 그래프 초기화
+        for(int i = 0; i<= n; i++){
+            graph.add(new ArrayList<Node>());
+        }
+
+        // 모든 간선 정보를 입력 받기
+        for (int i = 0; i < m; i++){
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int c = sc.nextInt();
+
+            // a번 노드에서 b번 노드로가는 비용이 c라는 의미
+            graph.get(a).add(new Node(b, c));
+        }
+
+        // 최단 거리 테이블을 모두 무한으로 초기화
+        Arrays.fill(d, INF);
+
+        // 다익스트라 알고리즘 수행
+        dijkstra(start);
+
+        // 모든 노드로 가기 위한 최단거리를 출력
+        for (int i = 1; i<=n; i++){
+            // 도달 할수 없는 경우, 무한(INFINITY)이라고 출력
+            if(d[i] == INF){
+                System.out.println("INFINITY");
+            }else{
+                System.out.println(d[i]);
+            }
         }
     }
 }
