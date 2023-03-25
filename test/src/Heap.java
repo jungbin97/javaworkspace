@@ -145,7 +145,7 @@ public class Heap<E> {
         array[size] = null;         // 타겟 노드가 있었던 곳 값 비움
 
         // 삭제할 노드의 인덱스와 이후 재배치 할 타겟 노드를 넘겨준다.
-        siftDown(1, target);        // 루트 노드가 삭제 되므로 1을 넘겨준다.
+//        siftDown(1, target);        // 루트 노드가 삭제 되므로 1을 넘겨준다.
 
         return result;
     }
