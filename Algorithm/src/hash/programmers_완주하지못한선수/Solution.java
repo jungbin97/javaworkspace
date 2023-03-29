@@ -52,7 +52,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        long beforetime = System.currentTimeMillis();
+        Solution s = new Solution();
         String solution= s.solution(new String[]{"mislav", "stanko", "mislav", "ana"}, new String[]{"stanko", "ana", "mislav"});
         System.out.println(solution);
     }
