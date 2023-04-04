@@ -1,7 +1,5 @@
-package 완전탐색.모음사전;
+package 완전탐색.programmers_모음사전;
 
-import java.util.ArrayList;
-import java.util.List;
 class Solution {
     /**********************************************************************
      * 재귀함수로 생성될 수 있는 모든 경우의 수 생성

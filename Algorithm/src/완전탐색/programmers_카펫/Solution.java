@@ -1,4 +1,4 @@
-package 완전탐색.카펫;
+package 완전탐색.programmers_카펫;
 
 import java.util.Arrays;
 

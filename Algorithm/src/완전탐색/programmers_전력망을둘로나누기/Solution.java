@@ -1,4 +1,4 @@
-package 완전탐색.전력망을둘로나누기;
+package 완전탐색.programmers_전력망을둘로나누기;
 import java.util.*;
 
 public class Solution {
