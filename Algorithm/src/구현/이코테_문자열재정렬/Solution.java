@@ -44,24 +44,20 @@ public class Solution {
             Scanner sc = new Scanner(System.in);
             str = sc.next();
 
-            // 문자를 하나씩 확인
+            //문자열 처리
             for (int i = 0; i < str.length(); i++){
-                // 알파벳인 경우 결과 리스트에 삽입
-                if(Character.isLetter(str.charAt(i))){
+                if (Character.isLetter(str.charAt(i))){     // 문자면 리스트에 추가
                     result.add(str.charAt(i));
-                }
-                // 숫자는 따로 처리
-                else{
-                    value += str.charAt(i) - '0';
+                }else{
+                    value += str.charAt(i) - '0';           // 숫자면 더하기
                 }
             }
 
-            // 알파벳을 오름차순으로 정렬
-            result.sort(Comparator.naturalOrder());     // 오름차순
-            for (Character character : result) {
-                System.out.print(character);
+            result.sort(Comparator.naturalOrder());     // 오름차순으로 정렬
+
+            for (Character i : result){
+                System.out.print(i);
             }
             System.out.println(value);
-
         }
 }
