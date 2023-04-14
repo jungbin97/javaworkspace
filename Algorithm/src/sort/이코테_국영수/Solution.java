@@ -9,8 +9,8 @@ import java.util.StringTokenizer;
 
 public class Solution {
         /**********************************************************************
-         *
-         *
+         * Comparator을 사용해 정렬을 커스터마이징 할 수 있어야한다.
+         * 시간복잡도 : O(NlogN)
          **********************************************************************/
         public static void main(String[] args) throws IOException{
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
