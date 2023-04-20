@@ -1,9 +1,6 @@
 package DFS_BFS.이코테_특정거리의도시찾기;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
         /**********************************************************************
