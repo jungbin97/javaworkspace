@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Solution {
         /**********************************************************************
          * 이진 탐색으로 풀이
-         *
+         * 시간 복잡도 : O(logN)
          **********************************************************************/
         // 맨처음 target값과 같은 수 인덱스 찾기
         public static int lowerBound(int[] arr, int target, int start, int end){
@@ -57,7 +57,6 @@ public class Solution {
             }
 
             // 값이 [x, y] 범위에 있는 데이터의 개수 계산
-
             int cnt = countByRange(arr, x, x);
 
             // 값이 x인 원소가 존재하지 않는다면
