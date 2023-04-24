@@ -1,5 +1,4 @@
-package 완전탐색.최소직사각형;
-import java.util.*;
+package 완전탐색.programmers_최소직사각형;
 
 
 public class Solution {
