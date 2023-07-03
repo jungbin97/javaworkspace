@@ -1,42 +1,42 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class note {
-    // Swap을 이용한 DFS 구현
-    static void per1(int[] arr, int depth, int n, int r){
-        if(depth == r){
-            print(arr, r);
-            return;
-        }
+    public static int[] parent = new int[1000001];
 
-        for (int i = depth; i<n; i++){
-            swap(arr, depth, i);
-            per1(arr, depth+1, n, r);
-            swap(arr, depth, i);        // 다시 위에 노드로 복귀
+    public static int find(int x){
+        if (x == parent[x]){
+            return x;
+        }
+        else {
+            return parent[x] = find(parent[x]);
         }
     }
-    static void swap(int[] arr, int depth, int i){
-        int temp = arr[depth];
-        arr[depth] = arr[i];
-        arr[i] = temp;
+
+    public static void union(int x, int y){
+        x = find(x);
+        y = find(y);
+        // 같은 부모를 가지고 있지 않을 때
+        if (x != y){
+            // y가 x보다 크다는 것을 가정
+            parent[y] = x;
+        }
     }
 
-    static void print(int[] arr, int r){
-        for(int i = 0; i < r; i++){
-            System.out.print(arr[i] + " ");
+    public static boolean isSameParent(int x, int y){
+        x = find(x);
+        y = find(y);
+        if (x == y){
+            return true;
+        }else{
+            return false;
         }
-        System.out.println();
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,2,3};
-        int n = arr.length;
-        int[] output = new int[n];      // 순열 출력을 위한 배열
-        boolean[] visited = new boolean[n]; // 중복해서 뽑지 않기 위해 방문했는지 체크
-
-        System.out.println("------------- Swap --------------");
-        // Swap 메서드를 이용해서 구현(r = 3 3개를 뽑을 것)
-        per1(arr, 0, n, 3);
-
+        for(int i = 1; i <= 8; i++){
+            parent[i] = i;
+        }
+        union(1, 2);
+        union(3, 4);
+        System.out.println("1과 3은 연결되어있는지 ?" + isSameParent(1, 3));
     }
 }
