@@ -47,9 +47,9 @@ public class Solution {
         }
 
     private static void DFS(int v) {
-        if(visited[v]){
-            return;
-        }
+//        if(visited[v]){
+//            return;
+//        }
         visited[v] = true;
         for(int i : A[v]){
             if(!visited[i]){
