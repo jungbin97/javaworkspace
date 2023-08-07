@@ -10,7 +10,7 @@ class tomato{
     int x;
     int y;
     int z;
-    public tomato(int x, int y, int z) {
+    public tomato(int z, int x, int y) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -32,9 +32,9 @@ public class Solution {
 
         Queue<tomato> q = new LinkedList<tomato>();
 
-        int[] dx = {-1, 1, 0, 0, 0, 0};
-        int[] dy = {0, 0, 1, 0, 0, 0};
-        int[] dz = {0, 0, 0, 0, 1, -1};
+        int[] dx = { -1, 0, 1, 0, 0, 0 }; //상하좌우위아래
+        int[] dy = { 0, 1, 0, -1, 0, 0 }; //상하좌우위아래
+        int[] dz = { 0, 0, 0, 0, 1, -1 }; //상하좌우위아래
 
         // 토마토 판 초기화
         int[][][] graph = new int[h][n][m];
@@ -65,7 +65,7 @@ public class Solution {
                 int ny = y + dy[i];
                 int nz = z + dz[i];
                 // 범위 안에 있어야 수행
-                if(nx>=0&& ny>=0 && nz>=0&&nx<n&&ny<m&&nz<h){
+                if(nx>=0 && ny>=0 && nz>=0 && nx<n && ny<m && nz<h) {
                     // 토마토가 안익었다면
                     if(graph[nz][nx][ny]==0){
                         // 익게 하고 큐에 추가
@@ -78,15 +78,15 @@ public class Solution {
             }
 
         }
-        int day = 0;
 
+        int day = 0;
         for(int i = 0; i<h; i++){
             for(int j = 0; j<n; j++){
                 for(int k = 0; k<m; k++){
                     // 토마토가 안익은게 있으면
                     if(graph[i][j][k]==0){
                         System.out.println(-1);;
-                        break;
+                        System.exit(0);
                     }
                     day = Math.max(day, graph[i][j][k]);
                 }
