@@ -33,7 +33,7 @@ public class Solution {
         }
 
     private static boolean prime(int x) {
-            for(int i = 2; i < Math.ceil(Math.sqrt(x)+1); i++){
+            for(int i = 2; i <= Math.sqrt(x); i++){
                 if (x%i==0){
                     return false;
                 }
