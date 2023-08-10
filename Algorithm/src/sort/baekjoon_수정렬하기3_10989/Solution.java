@@ -20,12 +20,14 @@ public class Solution {
                  arr[num] += 1;
             }
 
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i<10001; i++){
                 if (arr[i]!= 0){
                     for (int j = 0; j<arr[i]; j++){
-                        System.out.println(i);
+                        sb.append(i).append("\n");
                     }
                 }
             }
+            System.out.println(sb);
         }
 }
